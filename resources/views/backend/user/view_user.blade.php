@@ -71,36 +71,48 @@
         <!-- Dynamic Table Full -->
         <div class="block block-rounded">
             <div class="block-header block-header-default">
+
                 <h3 class="block-title">
-                    Dynamic Table <small>Full</small>
+                    User View <small>Full</small>
                 </h3>
+                <div>
+                    <button type="button" class="btn btn-sm btn-outline-success mt-3 mb-3">
+                        <i class="fa fa-fw fa-plus me-1"></i> Add User
+                    </button>
+                </div>
+
+
             </div>
             <div class="block-content block-content-full">
                 <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/tables_datatables.js -->
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-full fs-sm">
                     <thead>
                         <tr>
-                            <th class="text-center" style="width: 80px;">#</th>
+                            <th class="text-center" style="width: 80px;">SL</th>
+                            <th>Role</th>
                             <th>Name</th>
                             <th class="d-none d-sm-table-cell" style="width: 30%;">Email</th>
-                            <th style="width: 15%;">Registered</th>
+                            <th style="width: 25%;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i = 1; $i < 21; $i++)
+                        @foreach ($allData as $key => $user)
                             <tr>
-                                <td class="text-center">{{ $i }}</td>
+                                <td class="text-center">{{ $key + 1 }}</td>
+                                <td class="text-center"></td>
                                 <td class="fw-semibold">
-                                    <a href="javascript:void(0)">John Doe</a>
+                                    <a href="javascript:void(0)">{{ $user->name }}</a>
                                 </td>
-                                <td class="d-none d-sm-table-cell">
-                                    client{{ $i }}<span class="text-muted">@example.com</span>
+                                <td class="d-none d-sm-table-cell">{{ $user->email }}
+                                    {{-- client{{ $i }}<span class="text-muted">@example.com</span> --}}
                                 </td>
                                 <td class="text-muted">
-                                    {{ rand(2, 10) }} days ago
+                                    <a href="" class="btn btn-sm btn-info">Edit</a>
+                                    <a href="" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
-                        @endfor
+                        @endforeach
+
                     </tbody>
                 </table>
             </div>
