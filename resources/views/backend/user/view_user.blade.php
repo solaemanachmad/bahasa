@@ -7,22 +7,14 @@
 @endsection
 
 @section('js_after')
-    @vite(['resources/js/pages/tables_datatables.js'])
-
-    <!-- jQuery (required for DataTables plugin) -->
-    <script src="{{ asset('../js/lib/jquery.min.js') }}"></script>
-
     <!-- Page JS Plugins -->
     <script src="{{ asset('../js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('../js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('../js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('../js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
-    <script src="{{ asset('../js/plugins/datatables-buttons-jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('../js/plugins/datatables-buttons/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('../js/plugins/datatables-buttons/buttons.html5.min.js') }}"></script>
 
     <!-- Page JS Code -->
-    <script src="{{ asset('../js/pages/tables_datatables.js') }}"></script>
+    @vite(['resources/js/pages/tables_datatables.js'])
 @endsection
 
 @section('content')
@@ -76,9 +68,9 @@
                     User View <small>Full</small>
                 </h3>
                 <div>
-                    <button type="button" class="btn btn-sm btn-outline-success mt-3 mb-3">
+                    <a href="{{ route('user.add') }}" class="btn btn-sm btn-outline-success mt-3 mb-3">
                         <i class="fa fa-fw fa-plus me-1"></i> Add User
-                    </button>
+                    </a>
                 </div>
 
 
@@ -99,7 +91,7 @@
                         @foreach ($allData as $key => $user)
                             <tr>
                                 <td class="text-center">{{ $key + 1 }}</td>
-                                <td class="text-center"></td>
+                                <td class="text-center">{{ $user->usertype }}</td>
                                 <td class="fw-semibold">
                                     <a href="javascript:void(0)">{{ $user->name }}</a>
                                 </td>

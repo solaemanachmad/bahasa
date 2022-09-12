@@ -128,7 +128,7 @@
                     </a>
                 </li>
                 <li class="nav-main-heading">APP</li>
-                <li class="nav-main-item{{ request()->is('pages/*') ? ' open' : '' }}">
+                <li class="nav-main-item{{ request()->is('users/*') ? ' open' : '' }}">
                     <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
                         aria-expanded="true" href="#">
                         <i class="nav-main-link-icon si si-bulb"></i>
@@ -136,14 +136,14 @@
                     </a>
                     <ul class="nav-main-submenu">
                         <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('pages/datatables') ? ' active' : '' }}"
+                            <a class="nav-main-link{{ request()->is('users/view') ? ' active' : '' }}"
                                 href="{{ route('user.view') }}">
                                 <span class="nav-main-link-name">User View</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('pages/slick') ? ' active' : '' }}"
-                                href="/pages/slick">
+                            <a class="nav-main-link{{ request()->is('users/add') ? ' active' : '' }}"
+                                href="{{ route('user.add') }}">
                                 <span class="nav-main-link-name">User Add</span>
                             </a>
                     </ul>

@@ -26,12 +26,13 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('dashboard');
+
+    // User Management All Router
+    Route::prefix('users')->group(function () {
+        Route::get('/view', [UserController::class, 'UserView'])->name('user.view');
+        Route::get('/add', [UserController::class, 'UserAdd'])->name('user.add');
+        Route::post('/store', [UserController::class, 'UserStore'])->name('user.store');
+    });
 });
 
 Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.logout');
-
-// User Management All Router
-
-Route::prefix('users')->group(function () {
-    Route::get('/view', [UserController::class, 'UserView'])->name('user.view');
-});

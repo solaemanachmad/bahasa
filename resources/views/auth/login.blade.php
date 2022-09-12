@@ -23,14 +23,14 @@
 
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="../media/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../media/favicons/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../media/favicons/apple-touch-icon-180x180.png">
     <!-- END Icons -->
 
     <!-- Stylesheets -->
     <!-- OneUI framework -->
-    <link rel="stylesheet" id="css-main" href="assets/css/oneui.min.css">
+    <link rel="stylesheet" id="css-main" href="">
     @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/sass/oneui/themes/city.scss', 'resources/sass/oneui/themes/flat.scss', 'resources/sass/oneui/themes/modern.scss', 'resources/sass/oneui/themes/smooth.scss', 'resources/js/app.js', 'resources/js/app.js', 'resources/js/oneui/app.js'])
 
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
@@ -173,16 +173,16 @@
         Core libraries and functionality
         webpack is putting everything together at assets/_js/main/app.js
     -->
-    <script src="assets/js/oneui.app.min.js"></script>
+    <script src="../js/oneui.app.js"></script>
 
     <!-- jQuery (required for jQuery Validation plugin) -->
-    <script src="assets/js/lib/jquery.min.js"></script>
+    <script src="../js/lib/jquery.min.js"></script>
 
     <!-- Page JS Plugins -->
-    <script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="../js/plugins/jquery-validation/jquery.validate.min.js"></script>
 
     <!-- Page JS Code -->
-    <script src="assets/js/pages/op_auth_signin.min.js"></script>
+    {{-- <script src="../js/pages/op_auth_signin.min.js"></script> --}}
 </body>
 
 </html>

@@ -23,7 +23,7 @@
     <!-- Styles -->
     @yield('css_before')
     <link rel="stylesheet" id="css-main" href="">
-    @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/sass/oneui/themes/city.scss', 'resources/sass/oneui/themes/flat.scss', 'resources/sass/oneui/themes/modern.scss', 'resources/sass/oneui/themes/smooth.scss', 'resources/js/app.js', 'resources/js/app.js', 'resources/js/oneui/app.js'])
+    @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/sass/oneui/themes/city.scss', 'resources/sass/oneui/themes/flat.scss', 'resources/sass/oneui/themes/modern.scss', 'resources/sass/oneui/themes/smooth.scss', 'resources/js/app.js', 'resources/js/app.js', 'resources/js/oneui/app.js', 'resources/js/oneui/modules/helpers.js'])
 
     <!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
     <!-- <link rel="stylesheet" id="css-theme" href="{{ mix('/css/themes/amethyst.css') }}"> -->
@@ -144,10 +144,22 @@
     <!-- OneUI Core JS -->
     <script src=""></script>
 
-    <!-- Laravel Scaffolding JS -->
-    <!-- <script src="{{ mix('/js/laravel.app.js') }}"></script> -->
+    <!-- jQuery (required for Select2 + jQuery Validation plugins) -->
+    <script src="../js/lib/jquery.min.js"></script>
 
-    @yield('js_after')
+    <!-- Page JS Plugins -->
+    <script src="../js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <!-- Page JS Helpers (BS Notify Plugin) -->
+    <script>
+        One.helpersOnLoad(['jq-notify']);
+    </script>
+
+</body>
+<!-- Laravel Scaffolding JS -->
+<!-- <script src="{{ mix('/js/laravel.app.js') }}"></script> -->
+
+@yield('js_after')
 </body>
 
 </html>
