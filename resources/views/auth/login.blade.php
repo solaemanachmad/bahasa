@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>OneUI - Bootstrap 5 Admin Template &amp; UI Framework</title>
+    <title>UPT Bahasa - UMK &amp; UI Framework</title>
 
     <meta name="description"
-        content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
+        content="UPT Bahasa - UMK &amp; UI Framework created by pixelcave and published on Themeforest">
     <meta name="author" content="pixelcave">
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Open Graph Meta -->
-    <meta property="og:title" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework">
+    <meta property="og:title" content="UPT Bahasa - UMK &amp; UI Framework">
     <meta property="og:site_name" content="OneUI">
     <meta property="og:description"
-        content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
+        content="UPT Bahasa - UMK &amp; UI Framework created by pixelcave and published on Themeforest">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
@@ -31,7 +31,7 @@
     <!-- Stylesheets -->
     <!-- OneUI framework -->
     <link rel="stylesheet" id="css-main" href="">
-    @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/sass/oneui/themes/city.scss', 'resources/sass/oneui/themes/flat.scss', 'resources/sass/oneui/themes/modern.scss', 'resources/sass/oneui/themes/smooth.scss', 'resources/js/app.js', 'resources/js/app.js', 'resources/js/oneui/app.js'])
+    @vite(['resources/sass/main.scss', 'resources/js/oneui/app.js'])
 
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
     <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/amethyst.min.css"> -->
@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="block-content">
                                     <div class="p-sm-3 px-lg-4 px-xxl-5 py-lg-5">
-                                        <h1 class="h2 mb-1">OneUI</h1>
+                                        <h1 class="h2 mb-1">UPT Bahasa - UMK</h1>
                                         <p class="fw-medium text-muted">
                                             Welcome, please login.
                                         </p>

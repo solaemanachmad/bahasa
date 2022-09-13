@@ -2,14 +2,15 @@
 
 @section('css_before')
     <!-- Page JS Plugins CSS -->
-    <link rel="stylesheet" href="../js/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/js/plugins/select2/css/select2.min.css">
 @endsection
 
 @section('js_after')
     <!-- Page JS Plugins -->
-    <script src="../js/plugins/select2/js/select2.full.min.js"></script>
-    <script src="../js/plugins/jquery-validation/jquery.validate.min.js"></script>
-    <script src="../js/plugins/jquery-validation/additional-methods.js"></script>
+
+    <script src="/js/plugins/select2/js/select2.full.min.js"></script>
+    <script src="/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/js/plugins/jquery-validation/additional-methods.js"></script>
 @endsection
 
 @section('content')
@@ -46,7 +47,7 @@
         <div class="content">
             <!-- jQuery Validation (.js-validation class is initialized in js/pages/be_forms_validation.min.js which was auto compiled from _js/pages/be_forms_validation.js) -->
             <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-            <form class="js-validation" action="{{ route('user.store') }}" method="POST">
+            <form class="js-validation" action="{{ route('user.update', $editData->id) }}" method="POST">
                 @csrf
                 <div class="block block-rounded">
                     <div class="block-header block-header-default">
@@ -69,28 +70,30 @@
                                         style="width: 100%;" data-placeholder="Choose one..">
                                         <option></option>
                                         <!-- Required for data-placeholder attribute to work with Select2 plugin -->
-                                        <option value="Admin">Admin</option>
-                                        <option value="User">User</option>
+                                        <option value="Admin" {{ $editData->usertype == 'Admin' ? 'selected' : '' }}>Admin
+                                        </option>
+                                        <option value="User" {{ $editData->usertype == 'User' ? 'selected' : '' }}>User
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label" for="name">Username <span
                                             class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="val-username" name="name"
-                                        required="" placeholder="Enter a username..">
+                                        required="" value="{{ $editData->name }}">
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label" for="email">Email <span
                                             class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="val-email" name="email" required=""
-                                        placeholder="Your valid email..">
+                                        value="{{ $editData->email }}">
                                 </div>
-                                <div class="mb-4">
+                                {{-- <div class="mb-4">
                                     <label class="form-label" for="password">Password <span
                                             class="text-danger">*</span></label>
                                     <input type="password" class="form-control" id="val-password" name="password"
                                         placeholder="Choose a safe one..">
-                                </div>
+                                </div> --}}
                                 {{-- <div class="mb-4">
                                     <label class="form-label" for="val-confirm-password">Confirm Password <span
                                             class="text-danger">*</span></label>
@@ -101,14 +104,14 @@
                         </div>
                         <!-- END Regular -->
 
-                        <!-- Submit -->
+                        <!-- Update -->
                         <div class="row items-push">
                             <div class="col-lg-7 offset-lg-4">
                                 <button type="submit button" class="js-notify btn btn-alt-success push">
-                                    Submit</button>
+                                    Update</button>
                             </div>
                         </div>
-                        <!-- END Submit -->
+                        <!-- END Update -->
 
                     </div>
                 </div>

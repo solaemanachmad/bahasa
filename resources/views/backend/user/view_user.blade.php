@@ -2,19 +2,47 @@
 
 @section('css_before')
     <!-- Page JS Plugins CSS -->
-    <link rel="stylesheet" href="{{ asset('../js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('../js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css') }}">
 @endsection
 
 @section('js_after')
     <!-- Page JS Plugins -->
-    <script src="{{ asset('../js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('../js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
-    <script src="{{ asset('../js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('../js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('/js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('/js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
+
+
 
     <!-- Page JS Code -->
-    @vite(['resources/js/pages/tables_datatables.js'])
+    <script src="{{ asset('/js/pages/tables_datatables.js') }}"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(document).on('click', '#delete', function(e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+            });
+        });
+    </script>
 @endsection
 
 @section('content')
@@ -99,9 +127,11 @@
                                     {{-- client{{ $i }}<span class="text-muted">@example.com</span> --}}
                                 </td>
                                 <td class="text-muted">
-                                    <a href="" class="btn btn-sm btn-info">Edit</a>
-                                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                    <a href="{{ route('user.delete', $user->id) }}" id="delete"
+                                        class="btn btn-sm btn-danger">Delete</a>
                                 </td>
+
                             </tr>
                         @endforeach
 

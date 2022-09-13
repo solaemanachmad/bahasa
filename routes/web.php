@@ -32,6 +32,9 @@ Route::middleware([
         Route::get('/view', [UserController::class, 'UserView'])->name('user.view');
         Route::get('/add', [UserController::class, 'UserAdd'])->name('user.add');
         Route::post('/store', [UserController::class, 'UserStore'])->name('user.store');
+        Route::get('/{id}/edit', [UserController::class, 'UserEdit'])->name('user.edit');
+        Route::post('/{id}/edit', [UserController::class, 'UserUpdate'])->name('user.update');
+        Route::get('/{id}/delete', [UserController::class, 'UserDelete'])->name('user.delete');
     });
 });
 

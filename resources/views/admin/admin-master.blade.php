@@ -5,10 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <title>OneUI - Bootstrap 5 Admin Template &amp; UI Framework</title>
+    <title>UPT Bahasa &amp; UI Framework</title>
 
-    <meta name="description"
-        content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
+    <meta name="description" content="UPT Bahasa &amp; UI Framework created by pixelcave and published on Themeforest">
     <meta name="author" content="pixelcave">
     <meta name="robots" content="noindex, nofollow">
 
@@ -23,8 +22,10 @@
     <!-- Styles -->
     @yield('css_before')
     <link rel="stylesheet" id="css-main" href="">
-    @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/sass/oneui/themes/city.scss', 'resources/sass/oneui/themes/flat.scss', 'resources/sass/oneui/themes/modern.scss', 'resources/sass/oneui/themes/smooth.scss', 'resources/js/app.js', 'resources/js/app.js', 'resources/js/oneui/app.js', 'resources/js/oneui/modules/helpers.js'])
+    @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/sass/oneui/themes/city.scss', 'resources/sass/oneui/themes/flat.scss', 'resources/sass/oneui/themes/modern.scss', 'resources/sass/oneui/themes/smooth.scss'])
 
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="{{ asset('/js/plugins/sweetalert2/sweetalert2.min.css') }}">
     <!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
     <!-- <link rel="stylesheet" id="css-theme" href="{{ mix('/css/themes/amethyst.css') }}"> -->
     @yield('css_after')
@@ -142,22 +143,55 @@
     <!-- END Page Container -->
 
     <!-- OneUI Core JS -->
-    <script src=""></script>
+    <script src="{{ asset('/js/oneui.app.min.js') }}"></script>
 
     <!-- jQuery (required for Select2 + jQuery Validation plugins) -->
-    <script src="../js/lib/jquery.min.js"></script>
+    <script src="{{ asset('/js/lib/jquery.min.js') }}"></script>
 
     <!-- Page JS Plugins -->
-    <script src="../js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="{{ asset('/js/plugins/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
+    <script src="{{ asset('/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+    {{-- <script src="{{ asset('/js/pages/be_comp_dialogs.min.js') }}"></script> --}}
 
     <!-- Page JS Helpers (BS Notify Plugin) -->
     <script>
-        One.helpersOnLoad(['jq-notify']);
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    One.helpers('jq-notify', {
+                        type: 'info',
+                        icon: 'fa fa-info-circle me-1',
+                        message: '{{ Session::get('message') }}'
+                    });
+                    break;
+                case 'success':
+                    One.helpers('jq-notify', {
+                        type: 'success',
+                        icon: 'fa fa-check me-1',
+                        message: '{{ Session::get('message') }}'
+                    });
+                    break;
+                case 'warning':
+                    One.helpers('jq-notify', {
+                        type: 'warning',
+                        icon: 'fa fa-exclamation me-1',
+                        message: '{{ Session::get('message') }}'
+                    });
+                    break;
+                case 'error':
+                    One.helpers('jq-notify', {
+                        type: 'danger',
+                        icon: 'fa fa-times me-1',
+                        message: '{{ Session::get('message') }}'
+                    });
+                    break;
+
+            }
+        @endif
     </script>
 
 </body>
-<!-- Laravel Scaffolding JS -->
-<!-- <script src="{{ mix('/js/laravel.app.js') }}"></script> -->
 
 @yield('js_after')
 </body>

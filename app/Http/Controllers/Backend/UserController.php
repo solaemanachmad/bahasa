@@ -28,11 +28,43 @@ class UserController extends Controller
         $data->name = $request->name;
         $data->email = $request->email;
         $data->password = bcrypt($request->password);
-        //$data->save();
+        $data->save();
 
         $notification = array(
-            'message' => 'User inserted succesfully',
-            'type' => 'success'
+            'message' => 'User was inserted successfully !',
+            'alert-type' =>  'success'
+        );
+
+        return redirect()->route('user.view')->with($notification);
+    }
+    public function UserEdit($id)
+    {
+        $editData = User::find($id);
+        return view('backend.user.edit_user', compact('editData'));
+    }
+    public function UserUpdate(Request $request, $id)
+    {
+        $data = User::find($id);
+        $data->usertype = $request->usertype;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->save();
+
+        $notification = array(
+            'message' => 'User updated !',
+            'alert-type' =>  'info'
+        );
+
+        return redirect()->route('user.view')->with($notification);
+    }
+    public function UserDelete($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        $notification = array(
+            'message' => 'User deleted successfully',
+            'alert-type' =>  'danger'
         );
 
         return redirect()->route('user.view')->with($notification);
