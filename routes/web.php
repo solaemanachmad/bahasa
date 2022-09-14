@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,11 @@ Route::middleware([
         Route::get('/{id}/edit', [UserController::class, 'UserEdit'])->name('user.edit');
         Route::post('/{id}/edit', [UserController::class, 'UserUpdate'])->name('user.update');
         Route::get('/{id}/delete', [UserController::class, 'UserDelete'])->name('user.delete');
+    });
+
+    // User Management All Router
+    Route::prefix('profile')->group(function () {
+        Route::get('/view', [ProfileController::class, 'ProfileView'])->name('profile.view');
     });
 });
 
