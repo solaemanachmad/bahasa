@@ -47,91 +47,54 @@
 @endsection
 
 @section('content')
-    <!-- Hero -->
-    <div class="bg-body-light">
-        <div class="content content-full">
-            <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2">
-                <div class="flex-grow-1">
-                    <h1 class="h3 fw-bold mb-2">
-                        DataTables Example
-                    </h1>
-                    <h2 class="fs-base lh-base fw-medium text-muted mb-0">
-                        Plugin Integration
-                    </h2>
-                </div>
-                <nav class="flex-shrink-0 mt-3 mt-sm-0 ms-sm-3" aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb-alt">
-                        <li class="breadcrumb-item">
-                            <a class="link-fx" href="javascript:void(0)">Examples</a>
-                        </li>
-                        <li class="breadcrumb-item" aria-current="page">
-                            DataTables
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- END Hero -->
-
     <!-- Page Content -->
     <div class="content">
-        <!-- Info -->
-        <div class="block block-rounded">
-            <div class="block-header block-header-default">
-                <h3 class="block-title">Plugin Example</h3>
-            </div>
-            <div class="block-content fs-sm text-muted">
-                <p>
-                    This page showcases how easily you can add a plugin’s JS/CSS assets and init it using custom JS code.
-                </p>
-            </div>
-        </div>
-        <!-- END Info -->
-
         <!-- Dynamic Table Full -->
         <div class="block block-rounded">
             <div class="block-header block-header-default">
 
                 <h3 class="block-title">
-                    User View <small>Full</small>
+                    View <small>Certificate</small>
                 </h3>
-                <div>
-                    <a href="{{ route('user.add') }}" class="btn btn-sm btn-outline-success mt-3 mb-3">
-                        <i class="fa fa-fw fa-plus me-1"></i> Add User
-                    </a>
-                </div>
-
 
             </div>
             <div class="block-content block-content-full">
                 <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/tables_datatables.js -->
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-full fs-sm">
                     <thead>
-                        <tr>
-                            <th class="text-center" style="width: 80px;">SL</th>
-                            <th>Role</th>
-                            <th>Name</th>
-                            <th class="d-none d-sm-table-cell" style="width: 30%;">Email</th>
-                            <th style="width: 25%;">Action</th>
+                        <tr class="text-center">
+                            <th class="text-center">No</th>
+                            <th class="text-center">NIM</th>
+                            <th class="text-center">NAME</th>
+                            {{-- <th class="d-none d-sm-table-cell" style="width: 30%;">TERM</th> --}}
+                            <th class="text-center">TERM</th>
+                            <th class="text-center">SEMESTER</th>
+                            <th class="text-center">SCORE</th>
+                            {{-- <th style="width: 25%;">ACTION</th> --}}
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($allData as $key => $user)
+                        @foreach ($allData as $key => $all)
                             <tr>
                                 <td class="text-center">{{ $key + 1 }}</td>
-                                <td class="text-center">{{ $user->usertype }}</td>
-                                <td class="fw-semibold">
-                                    <a href="javascript:void(0)">{{ $user->name }}</a>
+                                <td class="text-center">{{ $all->nim }}</td>
+                                <td class="fw-semibold">{{ $all->name }}</a>
                                 </td>
-                                <td class="d-none d-sm-table-cell">{{ $user->email }}
+                                <td class="text-center">{{ $all->term }}
+                                    {{-- <td class="d-none d-sm-table-cell">{{ $all->term }} --}}
                                     {{-- client{{ $i }}<span class="text-muted">@example.com</span> --}}
                                 </td>
-                                <td class="text-muted">
-                                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-info">Edit</a>
-                                    <a href="{{ route('user.delete', $user->id) }}" id="delete"
-                                        class="btn btn-sm btn-danger">Delete</a>
+                                <td class="text-center">{{ $all->semester }}</td>
+                                <td class="text-center">
+                                    <span
+                                        class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-danger-light text-danger">{{ $all->score }}</span>
                                 </td>
+
+                                {{-- <td class="text-muted">
+                                    <a href="{{ route('user.edit', $all->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                    <a href="{{ route('user.delete', $all->id) }}" id="delete"
+                                        class="btn btn-sm btn-danger">Delete</a>
+                                </td> --}}
 
                             </tr>
                         @endforeach

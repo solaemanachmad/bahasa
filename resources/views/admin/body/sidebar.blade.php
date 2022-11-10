@@ -148,6 +148,21 @@
                             </a>
                     </ul>
                 </li>
+                <li class="nav-main-item{{ request()->is('kawe/*') ? ' open' : '' }}">
+                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
+                        aria-expanded="true" href="#">
+                        <i class="nav-main-link-icon si si-notebook"></i>
+                        <span class="nav-main-link-name">Kawe</span>
+                    </a>
+                    <ul class="nav-main-submenu">
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('kawe/view') ? ' active' : '' }}"
+                                href="{{ route('kawe.view') }}">
+                                <span class="nav-main-link-name">Certificate View</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-main-heading">More</li>
                 <li class="nav-main-item open">
                     <a class="nav-main-link" href="/">

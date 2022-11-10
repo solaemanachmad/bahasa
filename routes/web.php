@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\KaweController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +42,13 @@ Route::middleware([
     // User Management All Router
     Route::prefix('profile')->group(function () {
         Route::get('/view', [ProfileController::class, 'ProfileView'])->name('profile.view');
+        Route::get('/edit', [ProfileController::class, 'ProfileEdit'])->name('profile.edit');
+    });
+
+    // Kawe
+    Route::prefix('kawe')->group(function () {
+        Route::get('/view', [KaweController::class, 'KaweView'])->name('kawe.view');
+        Route::get('/edit', [KaweController::class, 'KaweEdit'])->name('kawe.edit');
     });
 });
 

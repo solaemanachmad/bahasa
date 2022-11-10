@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <title>UPT Bahasa &amp; UI Framework</title>
+    <title>UPT Bahasa &amp;</title>
 
     <meta name="description" content="UPT Bahasa &amp; UI Framework created by pixelcave and published on Themeforest">
     <meta name="author" content="pixelcave">
@@ -84,7 +84,7 @@
       'sidebar-dark page-header-dark dark-mode'   Enable dark mode (light sidebar/header is not supported with dark mode)
     -->
     <div id="page-container"
-        class="sidebar-o enable-page-overlay sidebar-dark side-scroll page-header-fixed main-content-narrow">
+        class="sidebar-o enable-page-overlay sidebar side-scroll page-header-fixed main-content-narrow">
         <!-- Side Overlay-->
         <aside id="side-overlay" class="fs-sm">
             <!-- Side Header -->

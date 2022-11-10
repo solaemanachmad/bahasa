@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 
@@ -16,5 +16,8 @@ class ProfileController extends Controller
         $user = User::find($id);
 
         return view('backend.user.view_profile', compact('user'));
+    }
+    public function ProfileEdit()
+    {
     }
 }

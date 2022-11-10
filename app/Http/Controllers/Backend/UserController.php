@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -51,8 +52,8 @@ class UserController extends Controller
         $data->save();
 
         $notification = array(
-            'message' => 'User updated !',
-            'alert-type' =>  'info'
+            'message' => 'User was updated successfully !',
+            'alert-type' =>  'success'
         );
 
         return redirect()->route('user.view')->with($notification);
@@ -63,7 +64,7 @@ class UserController extends Controller
         $user->delete();
 
         $notification = array(
-            'message' => 'User deleted successfully',
+            'message' => 'User was deleted successfully',
             'alert-type' =>  'danger'
         );
 
