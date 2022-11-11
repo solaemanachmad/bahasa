@@ -17,7 +17,7 @@
             <span class="smini-visible">
                 <i class="fa fa-circle-notch text-primary"></i>
             </span>
-            <span class="smini-hide fs-5 tracking-wider">One<span class="fw-normal">UI</span></span>
+            <span class="smini-hide fs-5 tracking-wider">UPT<span class="fw-normal"> Bahasa</span></span>
         </a>
         <!-- END Logo -->
 
@@ -131,7 +131,7 @@
                 <li class="nav-main-item{{ request()->is('users/*') ? ' open' : '' }}">
                     <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
                         aria-expanded="true" href="#">
-                        <i class="nav-main-link-icon si si-bulb"></i>
+                        <i class="nav-main-link-icon si si-users"></i>
                         <span class="nav-main-link-name">User Management</span>
                     </a>
                     <ul class="nav-main-submenu">
@@ -158,7 +158,22 @@
                         <li class="nav-main-item">
                             <a class="nav-main-link{{ request()->is('kawe/view') ? ' active' : '' }}"
                                 href="{{ route('kawe.view') }}">
-                                <span class="nav-main-link-name">Certificate View</span>
+                                <span class="nav-main-link-name">Old Certificate View</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-main-item{{ request()->is('mail/*') ? ' open' : '' }}">
+                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
+                        aria-expanded="true" href="#">
+                        <i class="nav-main-link-icon si si-envelope-letter"></i>
+                        <span class="nav-main-link-name">Mail</span>
+                    </a>
+                    <ul class="nav-main-submenu">
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('mail/view') ? ' active' : '' }}"
+                                href="{{ route('kawe.view') }}">
+                                <span class="nav-main-link-name">Inbox</span>
                             </a>
                         </li>
                     </ul>
